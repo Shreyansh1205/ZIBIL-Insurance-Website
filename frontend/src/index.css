@@ -1,0 +1,1296 @@
+@import "tailwindcss";
+
+/* =========================================================
+   ZUARI GLOBAL DESIGN SYSTEM
+   Premium Corporate Insurance Experience
+========================================================= */
+
+:root {
+  /* -------------------------------------------------------
+     CORE COLORS
+  ------------------------------------------------------- */
+
+  --zuari-navy: #071b36;
+  --zuari-navy-2: #0b2749;
+  --zuari-navy-3: #123861;
+
+  --zuari-blue: #1769e0;
+  --zuari-blue-dark: #0f4fae;
+  --zuari-blue-soft: #eaf3ff;
+
+  --zuari-sky: #5ea8ff;
+
+  --zuari-gold: #c99a45;
+  --zuari-gold-soft: #f7edd9;
+
+  --zuari-green: #25a66a;
+  --zuari-green-soft: #eaf8f1;
+
+  --zuari-red: #df5a5a;
+  --zuari-red-soft: #fff0f0;
+
+  /* -------------------------------------------------------
+     PUBLIC THEME VARIABLES
+  ------------------------------------------------------- */
+
+  --cream: #f7f9fc;
+  --ink: #10233f;
+
+  --coral: #1769e0;
+  --teal: #438bd8;
+  --sun: #d9b56b;
+
+  --background: #f7f9fc;
+  --foreground: #10233f;
+
+  --card: #ffffff;
+  --card-foreground: #10233f;
+
+  --popover: #ffffff;
+  --popover-foreground: #10233f;
+
+  --primary: #071b36;
+  --primary-foreground: #ffffff;
+
+  --secondary: #edf3fa;
+  --secondary-foreground: #10233f;
+
+  --muted: #f1f5f9;
+  --muted-foreground: #667992;
+
+  --accent: #1769e0;
+  --accent-foreground: #ffffff;
+
+  --destructive: #df5a5a;
+  --destructive-foreground: #ffffff;
+
+  --border: #dfe7f0;
+  --input: #d7e1eb;
+  --ring: #1769e0;
+
+  /* -------------------------------------------------------
+     RADIUS
+  ------------------------------------------------------- */
+
+  --radius: 1rem;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  /* -------------------------------------------------------
+     TAILWIND TOKEN MAPPING
+  ------------------------------------------------------- */
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-coral: var(--coral);
+  --color-teal: var(--teal);
+  --color-sun: var(--sun);
+
+  --color-ink: var(--ink);
+  --color-cream: var(--cream);
+
+  /* -------------------------------------------------------
+     TYPOGRAPHY
+  ------------------------------------------------------- */
+
+  --font-display:
+    "Fraunces",
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  --font-sans:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+
+/* =========================================================
+   BASE
+========================================================= */
+
+@layer base {
+
+  *,
+  *::before,
+  *::after {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background: var(--background);
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+
+    background:
+      radial-gradient(
+        circle at 85% 0%,
+        rgba(23, 105, 224, 0.055),
+        transparent 28%
+      ),
+      radial-gradient(
+        circle at 5% 80%,
+        rgba(201, 154, 69, 0.035),
+        transparent 25%
+      ),
+      var(--background);
+
+    color: var(--foreground);
+
+    font-family: var(--font-sans);
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    text-rendering: optimizeLegibility;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
+  }
+
+  ::selection {
+    background: rgba(23, 105, 224, 0.18);
+    color: var(--zuari-navy);
+  }
+
+  ::-webkit-scrollbar {
+    width: 9px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f2f5f9;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #c5d1df;
+    border-radius: 20px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #9fb0c4;
+  }
+}
+
+
+/* =========================================================
+   PREMIUM GRADIENTS
+========================================================= */
+
+.bg-grad-warm {
+  background:
+    linear-gradient(
+      135deg,
+      #0a2344 0%,
+      #1769e0 62%,
+      #d1a75e 130%
+    );
+}
+
+.bg-grad-cool {
+  background:
+    linear-gradient(
+      135deg,
+      #071b36 0%,
+      #0d3765 52%,
+      #1769e0 100%
+    );
+}
+
+.text-grad {
+  background:
+    linear-gradient(
+      135deg,
+      #1769e0 0%,
+      #0d3765 60%,
+      #c99a45 100%
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+.bg-coral {
+  background: var(--zuari-blue);
+}
+
+.bg-teal {
+  background: var(--zuari-blue);
+}
+
+
+/* =========================================================
+   PREMIUM SHADOWS
+========================================================= */
+
+.shadow-soft {
+  box-shadow:
+    0 25px 70px rgba(13, 38, 68, 0.08),
+    0 8px 25px rgba(13, 38, 68, 0.05);
+}
+
+.shadow-premium {
+  box-shadow:
+    0 30px 80px rgba(7, 27, 54, 0.12),
+    0 10px 30px rgba(7, 27, 54, 0.06);
+}
+
+.shadow-blue {
+  box-shadow:
+    0 20px 55px rgba(23, 105, 224, 0.20);
+}
+
+.shadow-gold {
+  box-shadow:
+    0 20px 55px rgba(201, 154, 69, 0.16);
+}
+
+
+/* =========================================================
+   PAGE BACKGROUND
+========================================================= */
+
+.zuari-page {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 80% 0%,
+      rgba(23, 105, 224, 0.06),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 0% 70%,
+      rgba(201, 154, 69, 0.04),
+      transparent 25%
+    );
+}
+
+
+/* =========================================================
+   PREMIUM CARDS
+========================================================= */
+
+.zuari-card {
+  position: relative;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.98),
+      rgba(248,251,255,0.98)
+    );
+
+  border:
+    1px solid rgba(215, 225, 236, 0.9);
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 20px 55px rgba(15, 39, 68, 0.06);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.zuari-card:hover {
+  transform: translateY(-4px);
+
+  border-color:
+    rgba(23, 105, 224, 0.22);
+
+  box-shadow:
+    0 30px 70px rgba(15, 39, 68, 0.10);
+}
+
+
+/* =========================================================
+   PREMIUM BUTTONS
+========================================================= */
+
+.zuari-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  min-height: 46px;
+
+  padding:
+    0 20px;
+
+  border:
+    1px solid transparent;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0b2749,
+      #1769e0
+    );
+
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 12px 30px rgba(23, 105, 224, 0.20);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.zuari-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 18px 38px rgba(23, 105, 224, 0.26);
+
+  filter: brightness(1.03);
+}
+
+.zuari-button-outline {
+  background: #ffffff;
+
+  color: var(--zuari-navy);
+
+  border-color: #d8e2ed;
+
+  box-shadow:
+    0 8px 25px rgba(15, 39, 68, 0.05);
+}
+
+.zuari-button-outline:hover {
+  border-color: #a9c4e3;
+
+  background: #f8fbff;
+}
+
+
+/* =========================================================
+   PREMIUM SECTION EYEBROW
+========================================================= */
+
+.zuari-eyebrow {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  color: #69819d;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+}
+
+.zuari-eyebrow::before {
+  content: "";
+
+  width: 24px;
+  height: 2px;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #1769e0,
+      #6daeff
+    );
+}
+
+
+/* =========================================================
+   PREMIUM FORM CONTROLS
+========================================================= */
+
+input,
+textarea,
+select {
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #1769e0 !important;
+
+  box-shadow:
+    0 0 0 4px rgba(23, 105, 224, 0.10);
+
+  outline: none;
+}
+
+
+/* =========================================================
+   PUBLIC SITE HEADER SUPPORT
+========================================================= */
+
+.public-site-header {
+  position: sticky;
+
+  top: 0;
+
+  z-index: 100;
+
+  backdrop-filter: blur(20px);
+
+  background:
+    rgba(247, 249, 252, 0.82);
+
+  border-bottom:
+    1px solid rgba(211, 222, 234, 0.7);
+}
+
+
+/* =========================================================
+   IMAGE TREATMENT
+========================================================= */
+
+.zuari-image-frame {
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 30px;
+
+  box-shadow:
+    0 30px 70px rgba(9, 32, 58, 0.12);
+}
+
+.zuari-image-frame::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(7,27,54,0.06),
+      transparent 45%,
+      rgba(23,105,224,0.08)
+    );
+
+  pointer-events: none;
+}
+
+.zuari-image-frame img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.8s cubic-bezier(.2,.7,.2,1);
+}
+
+.zuari-image-frame:hover img {
+  transform: scale(1.035);
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+}
+
+@keyframes float-slow {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-18px) rotate(-2deg);
+  }
+}
+
+@keyframes blob {
+
+  0%,
+  100% {
+    border-radius:
+      42% 58% 63% 37% /
+      50% 45% 55% 50%;
+
+    transform:
+      translate(0, 0)
+      rotate(0deg);
+  }
+
+  33% {
+    border-radius:
+      60% 40% 30% 70% /
+      60% 30% 70% 40%;
+
+    transform:
+      translate(16px, -16px)
+      rotate(15deg);
+  }
+
+  66% {
+    border-radius:
+      30% 70% 55% 45% /
+      40% 60% 40% 60%;
+
+    transform:
+      translate(-16px, 8px)
+      rotate(-12deg);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-25%);
+  }
+}
+
+@keyframes reveal-up {
+
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes tick {
+
+  0% {
+    transform:
+      scale(0)
+      rotate(-45deg);
+
+    opacity: 0;
+  }
+
+  60% {
+    transform:
+      scale(1.2)
+      rotate(0);
+
+    opacity: 1;
+  }
+
+  100% {
+    transform:
+      scale(1)
+      rotate(0);
+
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   ANIMATION UTILITIES
+========================================================= */
+
+@layer utilities {
+
+  .animate-float {
+    animation:
+      float 6s ease-in-out infinite;
+  }
+
+  .animate-float-slow {
+    animation:
+      float-slow 9s ease-in-out infinite;
+  }
+
+  .animate-blob {
+    animation:
+      blob 18s ease-in-out infinite;
+  }
+
+  .animate-marquee {
+    animation:
+      marquee 110s linear infinite;
+  }
+
+  .animate-reveal {
+    animation:
+      reveal-up 0.8s ease-out both;
+  }
+
+  .animate-shimmer {
+    background:
+      linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.45),
+        transparent
+      );
+
+    background-size:
+      200% 100%;
+
+    animation:
+      shimmer 2.5s linear infinite;
+  }
+
+  .animate-tick {
+    animation:
+      tick 0.6s cubic-bezier(
+        0.34,
+        1.56,
+        0.64,
+        1
+      ) both;
+  }
+}
+
+
+/* =========================================================
+   PUBLIC PAGE OVERRIDES
+========================================================= */
+
+/* Cards used throughout existing pages */
+
+.border--border{
+  border-color: var(--border);
+}
+
+/* Improve old Tailwind cards without requiring JSX rewrites */
+
+[class*="rounded-3xl"][class*="bg-(--card)"],
+[class*="rounded-4xl"][class*="bg-(--card)"] {
+  box-shadow:
+    0 18px 50px rgba(15, 39, 68, 0.045);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .zuari-card {
+    border-radius: 20px;
+  }
+
+  .zuari-image-frame {
+    border-radius: 22px;
+  }
+}
+
+@media (max-width: 640px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .zuari-button {
+    width: 100%;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================================================
+   ZUARI PREMIUM FOOTER
+========================================================= */
+
+.zuari-footer {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 10% 0%,
+      rgba(39, 111, 206, 0.18),
+      transparent 30%
+    ),
+    linear-gradient(
+      180deg,
+      #071c38 0%,
+      #06172d 55%,
+      #041122 100%
+    );
+
+  color: #fff;
+
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.zuari-footer-glow {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+
+  right: -180px;
+  top: -220px;
+
+  border-radius: 50%;
+
+  background: rgba(39,111,224,.13);
+
+  filter: blur(70px);
+
+  pointer-events: none;
+}
+
+.zuari-footer-container {
+  position: relative;
+  z-index: 1;
+
+  max-width: 1280px;
+
+  margin: 0 auto;
+
+  padding: 70px 28px 25px;
+}
+
+.zuari-footer-main {
+  display: grid;
+
+  grid-template-columns:
+    1.6fr
+    .8fr
+    .9fr
+    1.25fr;
+
+  gap: 60px;
+}
+
+.zuari-footer-brand {
+  max-width: 390px;
+}
+
+.zuari-footer-logo-link {
+  display: inline-flex;
+  align-items: center;
+}
+
+.zuari-footer-logo {
+  width: 205px;
+  height: auto;
+
+  filter:
+    brightness(1.08)
+    saturate(.95);
+}
+
+.zuari-footer-description {
+  margin: 22px 0 22px;
+
+  max-width: 340px;
+
+  color: #91a5bd;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+}
+
+.zuari-footer-social {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+}
+
+.zuari-footer-social > span {
+  margin-right: 5px;
+
+  color: #a9b9cc;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: .12em;
+}
+
+.zuari-social {
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  border:
+    1px solid rgba(255,255,255,.1);
+
+  border-radius: 11px;
+
+  background: rgba(255,255,255,.045);
+
+  color: #a9bbd0;
+
+  text-decoration: none;
+
+  transition:
+    transform .2s ease,
+    background .2s ease,
+    color .2s ease,
+    border-color .2s ease;
+}
+
+.zuari-social:hover {
+  transform: translateY(-3px);
+
+  background: rgba(255,255,255,.1);
+
+  color: #fff;
+
+  border-color: rgba(255,255,255,.18);
+}
+
+.zuari-app-download {
+  margin-top: 30px;
+}
+
+.zuari-app-download p {
+  margin-bottom: 11px;
+
+  color: #7f94ad;
+
+  font-size: 10px;
+}
+
+.zuari-app-buttons {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  max-width: 245px;
+}
+
+.zuari-app-buttons a {
+  display: block;
+}
+
+.zuari-app-buttons img {
+  width: 112px;
+  height: auto;
+
+  display: block;
+
+  opacity: .9;
+
+  transition:
+    opacity .2s ease,
+    transform .2s ease;
+}
+
+.zuari-app-buttons img:hover {
+  opacity: 1;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   FOOTER COLUMNS
+========================================================= */
+
+.zuari-footer-column-label {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: #4f9cff;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: .2em;
+}
+
+.zuari-footer-column h3 {
+  margin: 0 0 18px;
+
+  color: #f2f6fb;
+
+  font-size: 15px;
+
+  font-weight: 650;
+}
+
+.zuari-footer-column ul {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+
+  padding: 0;
+
+  margin: 0;
+
+  list-style: none;
+}
+
+.zuari-footer-column li,
+.zuari-footer-column a {
+  color: #8ea2ba;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+
+  text-decoration: none;
+
+  transition:
+    color .2s ease,
+    transform .2s ease;
+}
+
+.zuari-footer-column li a:hover {
+  color: #fff;
+
+  transform: translateX(3px);
+}
+
+.zuari-footer-column.contact > a {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #b5c5d8;
+
+  font-size: 12px;
+}
+
+.zuari-footer-column.contact > a:hover {
+  color: #66a9ff;
+}
+
+.zuari-footer-office {
+  margin-top: 22px;
+}
+
+.zuari-footer-office strong {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #d9e5f2;
+
+  font-size: 10px;
+
+  text-transform: uppercase;
+
+  letter-spacing: .12em;
+}
+
+.zuari-footer-office p {
+  margin: 0;
+
+  max-width: 270px;
+
+  color: #7f94ad;
+
+  font-size: 11px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   TRUST
+========================================================= */
+
+.zuari-footer-trust {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-top: 65px;
+
+  padding: 23px 0;
+
+  border-top:
+    1px solid rgba(255,255,255,.07);
+
+  border-bottom:
+    1px solid rgba(255,255,255,.07);
+}
+
+.zuari-footer-trust-copy span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #4f9cff;
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing: .18em;
+}
+
+.zuari-footer-trust-copy strong {
+  display: block;
+
+  color: #c9d7e6;
+
+  font-size: 11px;
+
+  font-weight: 550;
+}
+
+.zuari-footer-trust-copy p {
+  margin: 5px 0 0;
+
+  color: #71869e;
+
+  font-size: 9px;
+}
+
+.zuari-irdai {
+  width: 78px;
+
+  height: auto;
+
+  object-fit: contain;
+
+  opacity: .9;
+}
+
+
+/* =========================================================
+   COPYRIGHT
+========================================================= */
+
+.zuari-footer-bottom {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding-top: 21px;
+
+  color: #60758e;
+
+  font-size: 9px;
+}
+
+.zuari-footer-bottom div {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.zuari-footer-bottom a {
+  color: #71869d;
+
+  text-decoration: none;
+}
+
+.zuari-footer-bottom a:hover {
+  color: #fff;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1050px) {
+
+  .zuari-footer-main {
+    grid-template-columns:
+      1.4fr
+      1fr
+      1fr;
+
+    gap: 45px;
+  }
+
+  .zuari-footer-brand {
+    grid-column: 1 / -1;
+
+    max-width: 600px;
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .zuari-footer-container {
+    padding:
+      50px 20px 22px;
+  }
+
+  .zuari-footer-main {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+  }
+
+  .zuari-footer-brand {
+    grid-column: auto;
+  }
+
+  .zuari-footer-trust {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .zuari-footer-bottom {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .zuari-footer-logo {
+    width: 180px;
+  }
+
+}

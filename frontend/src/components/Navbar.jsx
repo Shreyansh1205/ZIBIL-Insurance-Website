@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { Link, useLocation } from "react-router";
 import logo from "../assets/ZuariLogo.png";
+import poddarLogo from "../assets/PoddarLogo.png";
 
 const nav = [
   {
@@ -192,6 +193,14 @@ export function Navbar() {
             md:flex
           "
         >
+                    {/* PODDAR LOGO */}
+          <img
+            src={poddarLogo}
+            alt="Saroj Poddar Group"
+            className="h-9 w-auto object-contain"
+          />
+          <span className="h-6 w-px bg-[#dce5ef]" aria-hidden="true" />
+
 
           {/* LOGIN */}
 

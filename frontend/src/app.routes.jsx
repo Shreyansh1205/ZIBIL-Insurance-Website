@@ -21,7 +21,7 @@ import { usePortalAuth } from "./contexts/portalAuth.context";
 import ComingSoonPage from "./pages/ComingSoonPage";
 
 // Set to true when the portal login is ready to go live
-const PORTAL_LIVE = false;
+const PORTAL_LIVE = true;
 
 function ProtectedRoute({
   type,

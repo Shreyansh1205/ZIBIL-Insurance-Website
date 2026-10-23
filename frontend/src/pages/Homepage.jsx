@@ -16,14 +16,17 @@ import {
   Ship,
   Motorbike
 } from "lucide-react";
+
+/* PREVIOUS VERSION: section photos (no longer used, replaced by <RowVisual />)
 import careImg from "../assets/careImg.jpg";
 import familyImg from "../assets/familyImg.jpg";
 import businessImg from "../assets/businessImg.jpg";
+*/
+
 import { Rotator, Counter } from "../components/dynamic-bits";
 import { Navbar } from "../components/Navbar";
 import { useReveal } from "../hooks/useReveal";
 import Footer from "../components/Footer";
-const HeroScene = lazy(() => import("../components/HeroScene"));
 import Adventz_logo from "../assets/Comp/Adventz.jpg";
 import Farmhub_logo from "../assets/Comp/Farmhub.jpg";
 import GSMA_logo from "../assets/Comp/GSMA.jpg";
@@ -59,7 +62,33 @@ import Zurich_logo from "../assets/Partners/zurich_logo.avif";
 import Future_Generali from "../assets/Partners/Future_Generali.png";
 import Induslnd_General from "../assets/Partners/Induslnd_General.png";
 
+/* 3D hero scene (loaded on demand) */
+const HeroScene = lazy(() => import("../components/HeroScene"));
 
+/* Icon used inside each section visual */
+const rowIcons = {
+  "For Employees": Stethoscope,
+  "For Families": Umbrella,
+  "For HR & Departments": Building2,
+};
+
+/* NEW: premium visual that replaces the section photos */
+function RowVisual({ row }) {
+  const Icon = rowIcons[row.badge] || Shield;
+  return (
+    <div className="row-visual">
+      <div className="row-visual-mesh" aria-hidden="true" />
+      <div className="row-visual-rings" aria-hidden="true"><i /><i /><i /></div>
+      <div className="row-visual-core"><Icon strokeWidth={1.6} /></div>
+      {row.bullets.slice(0, 3).map((b, i) => (
+        <span key={b} className={`row-chip row-chip-${i}`}>
+          <Check className="h-3.5 w-3.5" strokeWidth={3} />
+          {b}
+        </span>
+      ))}
+    </div>
+  );
+}
 
 function RevealItem({ children, className = "", delay = 0, offset = 40 }) {
   const { ref, visible } = useReveal();
@@ -89,145 +118,42 @@ const Homepage = () => {
   }, []);
 
   const logos = [
-    {
-      name: "Adventz Limited",
-      url: Adventz_logo,
-    },
-    {
-      name: "Farmhub",
-      url: Farmhub_logo,
-    },
-    {
-      name: "Zuari Management Services",
-      url: GSMA_logo
-    },
-    {
-      name: "Jai Kisan",
-      url: JaiKisan_logo
-    },
-    {
-      name: "Nymwac",
-      url: Nymwac_logo
-    },
-    {
-      name: "Simon India",
-      url: Simon_logo
-    },
-    {
-      name: "Snackpure",
-      url: Snackpure
-    },
-    {
-      name: "Stylespa",
-      url: Stylespa
-    },
-    {
-      name: "Taxmaco Rail",
-      url: Taxmaco_logo
-    },
-    {
-      name: "Zuari Envien",
-      url: Zuari_Envien
-    },
-    {
-      name: "Zuari Furniture",
-      url: Zuari_Furniture
-    },
-    {
-      name: "Zuari Garden City",
-      url: Zuari_GardernCity
-    },
-    {
-      name: "Zuari Industries",
-      url: Zuari_Industries
-    },
-    {
-      name: "Zuari Infraworld",
-      url: Zuari_Infraworld
-    },
-    {
-      name: "Zuari Money",
-      url: Zuari_Money
-    },
-    {
-      name: "Zuari Premium",
-      url: Zuari_Premium
-    },
-    {
-      name: "Zuari Rain Forest",
-      url: Zuari_RainForest
-    },
-    {
-      name: "Zuari IAV",
-      url: Zuari_IAV
-    }
+    { name: "Adventz Limited", url: Adventz_logo },
+    { name: "Farmhub", url: Farmhub_logo },
+    { name: "Zuari Management Services", url: GSMA_logo },
+    { name: "Jai Kisan", url: JaiKisan_logo },
+    { name: "Nymwac", url: Nymwac_logo },
+    { name: "Simon India", url: Simon_logo },
+    { name: "Snackpure", url: Snackpure },
+    { name: "Stylespa", url: Stylespa },
+    { name: "Taxmaco Rail", url: Taxmaco_logo },
+    { name: "Zuari Envien", url: Zuari_Envien },
+    { name: "Zuari Furniture", url: Zuari_Furniture },
+    { name: "Zuari Garden City", url: Zuari_GardernCity },
+    { name: "Zuari Industries", url: Zuari_Industries },
+    { name: "Zuari Infraworld", url: Zuari_Infraworld },
+    { name: "Zuari Money", url: Zuari_Money },
+    { name: "Zuari Premium", url: Zuari_Premium },
+    { name: "Zuari Rain Forest", url: Zuari_RainForest },
+    { name: "Zuari IAV", url: Zuari_IAV },
   ];
-  const Partners = [
-    {
-      name: "Aditya_Birla_Logo",
-      url: Aditya_Birla_Logo
-    },
-    {
-      name: "Aviva_logo",
-      url: Aviva_logo,
-      height: "h-8", bg: "bg-white"
-    },
-    {
-      name: "Bgil_logo",
-      url: Bgil_logo  
-    },
-    {
-      name: "HDFC_Life",
-      url: HDFC_Life
-    },
-    { 
-      name: "ICICI Lombard", 
-      url: ICICI_Lombard, 
-      height: "h-8", bg: "bg-black" 
-    },
-    {
-      name: "ICICI_prudential",
-      url: ICICI_prudential
-    },
-    {
-      name: "Iffco_tokio",
-      url: Iffco_tokio
-    },
-    {
-      name: "Magma_Logo",
-      url: Magma_Logo
-    },
-    {
-      name: "Nia",
-      url: Nia,
-      bg: "bg-black"
-    },
-    {
-      name: "Oriental_Insure",
-      url: Oriental_Insure,
-      bg: "bg-white"
-    },
-    {
-      name: "Royal_Sundaram",
-      url: Royal_Sundaram
-    },
-    {
-      name: "TataAig",
-      url: TataAig
-    },
-    {
-      name: "Zurich_logo",
-      url: Zurich_logo
-    },
-    {
-      name: "Future_Generali",
-      url: Future_Generali
-    },
-    {
-      name: "Induslnd_General",
-      url: Induslnd_General
-    }
 
+  const Partners = [
+    { name: "Aditya_Birla_Logo", url: Aditya_Birla_Logo },
+    { name: "Aviva_logo", url: Aviva_logo, height: "h-8", bg: "bg-white" },
+    { name: "Bgil_logo", url: Bgil_logo },
+    { name: "HDFC_Life", url: HDFC_Life },
+    { name: "ICICI Lombard", url: ICICI_Lombard, height: "h-8", bg: "bg-black" },
+    { name: "ICICI_prudential", url: ICICI_prudential },
+    { name: "Iffco_tokio", url: Iffco_tokio },
+    { name: "Magma_Logo", url: Magma_Logo },
+    { name: "Nia", url: Nia, bg: "bg-black" },
+    { name: "Oriental_Insure", url: Oriental_Insure, bg: "bg-white" },
+    { name: "Royal_Sundaram", url: Royal_Sundaram },
+    { name: "TataAig", url: TataAig },
+    { name: "Zurich_logo", url: Zurich_logo },
+    { name: "Future_Generali", url: Future_Generali },
+    { name: "Induslnd_General", url: Induslnd_General },
   ];
 
   const marqueeItems = Array(4).fill(logos).flat();
@@ -246,7 +172,6 @@ const Homepage = () => {
       desc: "Comprehensive motor insurance for personal and commercial vehicles.",
       color: "bg-(--primary)/15 text-(--foreground)",
     },
-
     {
       icon: Users,
       title: "Liability",
@@ -295,7 +220,7 @@ const Homepage = () => {
         "Family enrollment",
         "Wellness credits & rewards",
       ],
-      img: careImg,
+      // img: careImg,   // PREVIOUS VERSION (photo)
       align: "left",
     },
     {
@@ -307,7 +232,7 @@ const Homepage = () => {
         "Pan-India cashless network",
         "Maternity & newborn included",
       ],
-      img: familyImg,
+      // img: familyImg,   // PREVIOUS VERSION (photo)
       align: "right",
     },
     {
@@ -319,7 +244,7 @@ const Homepage = () => {
         "Claims analytics",
         "HRMS integrations",
       ],
-      img: businessImg,
+      // img: businessImg,   // PREVIOUS VERSION (photo)
       align: "left",
     },
   ];
@@ -359,6 +284,7 @@ const Homepage = () => {
     <div>
       <Navbar />
 
+      {/* HERO (dark stage + 3D shield) */}
       <section className="hero-stage">
         <div className="hero-mesh" aria-hidden="true" />
         <div className="hero-grid-lines" aria-hidden="true" />
@@ -399,7 +325,10 @@ const Homepage = () => {
 
             <dl className="hero-stats">
               <div><dt>Insurer partners</dt><dd>15+</dd></div>
+              {/* PREVIOUS VERSION:
               <div><dt>Policy lines</dt><dd>Motor, health, life, marine</dd></div>
+              */}
+              <div><dt>Policy lines</dt><dd>Motor, health, life, marine, business</dd></div>
               <div><dt>Claims support</dt><dd>Dedicated desk</dd></div>
             </dl>
           </div>
@@ -444,7 +373,6 @@ const Homepage = () => {
         </div>
       </section>
 
-
       <section id="solutions" className="mx-auto max-w-7xl px-6 py-24">
         <div className="mb-12 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div>
@@ -455,7 +383,6 @@ const Homepage = () => {
               Insurance programs.
             </h2>
           </div>
-
         </div>
 
         <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-4">
@@ -467,22 +394,22 @@ const Homepage = () => {
                 className="group relative overflow-hidden rounded-3xl border border-(--border)/60 bg-(--card) p-6 transition-all duration-500 hover:-translate-y-2 hover:shadow-soft"
                 style={{ animation: `reveal-up 0.7s ${i * 100}ms both` }}
               >
-                 <Link
+                <Link
                   to="/solutions"
                   // className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-(--foreground)/80 transition group-hover:text-(--coral)"
                 >
-                <div className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-grad-warm opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-40" />
-                <span
-                  className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl ${it.color}`}
-                >
-                  <Icon className="h-6 w-6" />
-                </span>
-                <h3 className="mt-6 font-display text-xl font-semibold">
-                  {it.title}
-                </h3>
-                <p className="mt-2 text-sm text-(--muted-foreground)">
-                  {it.desc}
-                </p>
+                  <div className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-grad-warm opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-40" />
+                  <span
+                    className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl ${it.color}`}
+                  >
+                    <Icon className="h-6 w-6" />
+                  </span>
+                  <h3 className="mt-6 font-display text-xl font-semibold">
+                    {it.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-(--muted-foreground)">
+                    {it.desc}
+                  </p>
                 </Link>
                 {/* <Link
                   to="/solutions"
@@ -496,6 +423,7 @@ const Homepage = () => {
           })}
         </div>
       </section>
+
       <section className="border-y border-(--border)/60 bg-(--background)/60 py-8">
         <p className="mb-6 text-center text-md font-medium uppercase tracking-wider text-(--muted-foreground)">
           Partners
@@ -535,6 +463,7 @@ const Homepage = () => {
             className={`grid gap-12 md:grid-cols-2 md:items-center ${row.align === "right" ? "md:[&>*:first-child]:order-2" : ""}`}
             delay={i * 120}
           >
+            {/* PREVIOUS VERSION: photo block
             <div className="relative">
               <div className="absolute -inset-4 -z-10 rounded-[2.5rem] bg-grad-cool opacity-20 blur-2xl animate-blob" />
               <div className="overflow-hidden rounded-4xl bg-(--card) shadow-soft">
@@ -548,6 +477,11 @@ const Homepage = () => {
                 />
               </div>
             </div>
+            */}
+
+            {/* NEW: premium visual */}
+            <RowVisual row={row} />
+
             <div>
               <span className="inline-flex items-center gap-1.5 rounded-full bg-(--secondary) px-3 py-1 text-xs font-semibold uppercase tracking-wider text-(--foreground)/70">
                 <Zap className="h-3 w-3 text-(--coral)" />
@@ -580,7 +514,6 @@ const Homepage = () => {
           <div className="absolute -bottom-20 right-10 h-72 w-72 rounded-full bg-teal blur-3xl animate-float" />
         </div>
         <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-6 px-6 text-center text-white">
-
           <h2 className="max-w-3xl font-display text-4xl md:text-6xl">
             Your Protection. <span className="italic"> Our Promise.</span>
           </h2>

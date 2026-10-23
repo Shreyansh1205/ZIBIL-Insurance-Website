@@ -36,7 +36,7 @@ function buildShield() {
     new THREE.MeshStandardMaterial({ color: GOLD, metalness: 1, roughness: 0.2, envMapIntensity: 1.4 })
   );
   rim.geometry.center();
-  rim.position.z = -0.1;
+  rim.position.z = -0.32;
   g.add(rim);
 
   // gold check mark
@@ -193,7 +193,7 @@ export default function HeroScene({ variant = 'shield', className = '' }) {
       pointer.x += (pointer.tx - pointer.x) * 0.06;
       pointer.y += (pointer.ty - pointer.y) * 0.06;
 
-      hero.rotation.y = pointer.x * 0.55 + Math.sin(t * 0.5) * 0.18 * calm;
+      hero.rotation.y = pointer.x * 0.35 + Math.sin(t * 0.5) * 0.14 * calm;
       hero.rotation.x = pointer.y * 0.28;
       hero.position.y = Math.sin(t * 0.9) * 0.1 * calm;
       rings.rotation.z = t * 0.12 * calm;

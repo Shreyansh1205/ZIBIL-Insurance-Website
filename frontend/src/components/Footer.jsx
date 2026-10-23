@@ -360,24 +360,6 @@ const Footer = () => {
             © {new Date().getFullYear()} Zuari Insurance Brokers Limited
           </span>
 
-          <div>
-            <Link to="/privacy">
-              Privacy
-            </Link>
-
-            <span>·</span>
-
-            <Link to="/contact">
-              Support
-            </Link>
-
-            <span>·</span>
-
-            <Link to="/login">
-              Portal Login
-            </Link>
-          </div>
-
         </div>
 
       </div>

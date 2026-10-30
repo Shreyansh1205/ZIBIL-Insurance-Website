@@ -1,134 +1,59 @@
 import {
   BarChart3,
-  Bell,
-  BriefcaseBusiness,
-  CalendarDays,
-  ClipboardCheck,
-  CreditCard,
-  FileCheck2,
+  Calculator,
+  ClipboardList,
+  FileDown,
   FileText,
   FolderOpen,
   HeartPulse,
   LayoutDashboard,
   LifeBuoy,
-  MessageSquare,
+  ListChecks,
+  MapPin,
   Network,
   Receipt,
-  RefreshCcw,
+  ScrollText,
   ShieldCheck,
-  Users,
+  Sparkles,
+  UserPlus,
   UserRound,
+  Users,
 } from 'lucide-react';
 
 
+/* =========================================================
+   EMPLOYEE PORTAL (path prefix: /customer, kept so existing
+   login, route guards and demo auth keep working)
+========================================================= */
 export const customerNav = [
-  {
-    label: 'Dashboard',
-    path: '/customer/dashboard',
-    icon: LayoutDashboard,
-  },
-  {
-    label: 'My Policies',
-    path: '/customer/policies',
-    icon: ShieldCheck,
-  },
-  {
-    label: 'Renewals Due',
-    path: '/customer/renewals',
-    icon: RefreshCcw,
-  },
-  {
-    label: 'Claims Status',
-    path: '/customer/claims',
-    icon: HeartPulse,
-  },
-  {
-    label: 'Documents & Certificates',
-    path: '/customer/documents',
-    icon: FileText,
-  },
-  {
-    label: 'Premium & Payments',
-    path: '/customer/payments',
-    icon: CreditCard,
-  },
-  {
-    label: 'Nominee Details',
-    path: '/customer/nominees',
-    icon: Users,
-  },
-  {
-    label: 'Service Requests',
-    path: '/customer/requests',
-    icon: LifeBuoy,
-  },
+  { label: 'Dashboard', path: '/customer/dashboard', icon: LayoutDashboard },
+  { label: 'Policy Details', path: '/customer/policy-details', icon: ShieldCheck },
+  { label: 'My Coverages', path: '/customer/coverages', icon: ListChecks },
+  { label: 'Members Covered', path: '/customer/members', icon: Users },
+  { label: 'Escalation Matrix', path: '/customer/escalation', icon: Network },
+  { label: 'Network Hospital', path: '/customer/hospitals', icon: MapPin },
+  { label: 'Download Forms', path: '/customer/forms', icon: FileDown },
+  { label: 'Claim Status', path: '/customer/claim-status', icon: HeartPulse },
+  { label: 'Intimate My Claim', path: '/customer/intimate-claim', icon: LifeBuoy },
+  { label: 'Wellness (Medibhai)', path: '/customer/wellness', icon: Sparkles },
 ];
 
 
+/* =========================================================
+   HR PORTAL (path prefix: /corporate)
+========================================================= */
 export const corporateNav = [
-  {
-    label: 'Dashboard',
-    path: '/corporate/dashboard',
-    icon: LayoutDashboard,
-  },
-  {
-    label: 'Policy Portfolio',
-    path: '/corporate/policies',
-    icon: BriefcaseBusiness,
-  },
-  {
-    label: 'Employee Benefits',
-    path: '/corporate/benefits',
-    icon: Users,
-  },
-  {
-    label: 'Members Management',
-    path: '/corporate/members',
-    icon: UserRound,
-  },
-  {
-    label: 'Claims Management',
-    path: '/corporate/claims',
-    icon: HeartPulse,
-  },
-  {
-    label: 'Endorsements & Changes',
-    path: '/corporate/endorsements',
-    icon: FileCheck2,
-  },
-  {
-    label: 'Renewal Calendar',
-    path: '/corporate/renewals',
-    icon: CalendarDays,
-  },
-  {
-    label: 'Premium Summary',
-    path: '/corporate/premium',
-    icon: Receipt,
-  },
-  {
-    label: 'Reports & Analytics',
-    path: '/corporate/reports',
-    icon: BarChart3,
-  },
-  {
-    label: 'Documents & Certificates',
-    path: '/corporate/documents',
-    icon: FolderOpen,
-  },
-  {
-    label: 'Service Requests',
-    path: '/corporate/requests',
-    icon: LifeBuoy,
-  },
-  {
-    label: 'Communication Center',
-    path: '/corporate/communications',
-    icon: MessageSquare,
-  },
-  {
-    label: 'Relationship Manager',
-    path: '/corporate/relationship-manager',
-    icon: Network,
-  },
-];
+  { label: 'Dashboard', path: '/corporate/dashboard', icon: LayoutDashboard },
+  { label: 'Enrollment', path: '/corporate/enrollment', icon: UserPlus },
+  { label: 'Employee Requests', path: '/corporate/requests', icon: ClipboardList },
+  { label: 'Claims', path: '/corporate/claims', icon: HeartPulse },
+  { label: 'Cashless Hospitals', path: '/corporate/hospitals', icon: MapPin },
+  { label: 'Escalation Matrix', path: '/corporate/escalation', icon: Network },
+  { label: 'Policy Features', path: '/corporate/features', icon: ScrollText },
+  { label: 'Documents', path: '/corporate/documents', icon: FolderOpen },
+  { label: 'CD & Endorsements', path: '/corporate/cd', icon: Receipt },
+  { label: 'Employee', path: '/corporate/employee', icon: UserRound },
+  { label: 'Endorsement Calculation', path: '/corporate/endorsement-calculation', icon: Calculator },
+  { label: 'Reports', path: '/corporate/reports', icon: BarChart3 },
+  { label: 'Summary', path: '/corporate/summary', icon: FileText },
+];  

@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: zuari-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    plan: free
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: CORS_ORIGIN
+        sync: false
+      - key: ALLOW_VERCEL_PREVIEWS
+        value: "true"
+      - key: MONGODB_URI
+        sync: false
+      - key: DEMO_CUSTOMER_ID
+        value: CUST10001
+      - key: DEMO_CUSTOMER_EMAIL
+        value: customer@zuari-demo.com
+      - key: DEMO_CUSTOMER_PASSWORD
+        value: Zuari@123
+      - key: DEMO_CORPORATE_ID
+        value: CORP10001
+      - key: DEMO_EMPLOYEE_ID
+        value: EMP10001
+      - key: DEMO_EMPLOYEE_EMAIL
+        value: employee@zuari-demo.com
+      - key: DEMO_EMPLOYEE_PASSWORD
+        value: Zuari@123

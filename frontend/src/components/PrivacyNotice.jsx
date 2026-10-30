@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ChevronDown, ChevronRight, X } from "lucide-react";
+import { router } from "../app.routes";
 
 const STORAGE_KEY = "zuari-privacy-preferences";
 
@@ -65,6 +66,10 @@ export default function PrivacyNotice() {
   const [showPreferences, setShowPreferences] = useState(false);
   const [openCategory, setOpenCategory] = useState(null);
   const [prefs, setPrefs] = useState(DEFAULT_PREFS);
+    // Don't show the banner over the logged-in portal (/customer/*, /corporate/*)
+  const [pathname, setPathname] = useState(() => router.state.location.pathname);
+  useEffect(() => router.subscribe((state) => setPathname(state.location.pathname)), []);
+  const inPortal = /^\/(customer|corporate)(\/|$)/.test(pathname);
 
   useEffect(() => {
     try {
@@ -102,7 +107,7 @@ export default function PrivacyNotice() {
     setOpenCategory((current) => (current === key ? null : key));
   };
 
-  if (!visible) return null;
+  if (!visible || inPortal) return null;
 
   return (
     <div

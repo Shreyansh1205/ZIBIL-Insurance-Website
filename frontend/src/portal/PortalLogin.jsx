@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import {
   ArrowLeft,
@@ -22,6 +22,7 @@ import toast from 'react-hot-toast';
 import {
   demoCorporateLogin,
   demoCustomerLogin,
+  warmUpBackend,
 } from '../services/demoAuth.api';
 
 import { usePortalAuth } from '../contexts/portalAuth.context';
@@ -102,6 +103,10 @@ export default function PortalLogin({
     }
   };
 
+    // Wake the Render backend while the user is typing
+  useEffect(() => {
+    warmUpBackend();
+  }, []);
 
   const submit = async (event) => {
 

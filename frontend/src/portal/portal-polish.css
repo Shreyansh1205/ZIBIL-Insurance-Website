@@ -1,0 +1,142 @@
+/* =========================================================
+   Portal polish layer — loaded LAST (see main.jsx).
+   Only refines the existing premium design; no layout rewrites.
+========================================================= */
+
+/* ---------- Page entrance ---------- */
+.portal-main .portal-content-inner > * {
+  animation: pp-rise .5s cubic-bezier(.2, .8, .2, 1) both;
+}
+.portal-main .portal-content-inner > *:nth-child(2) { animation-delay: .04s; }
+.portal-main .portal-content-inner > *:nth-child(3) { animation-delay: .08s; }
+.portal-main .portal-content-inner > *:nth-child(4) { animation-delay: .12s; }
+.portal-main .portal-content-inner > *:nth-child(5) { animation-delay: .16s; }
+.portal-main .portal-content-inner > *:nth-child(n+6) { animation-delay: .2s; }
+@keyframes pp-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .portal-main .portal-content-inner > * { animation: none; }
+}
+
+/* ---------- Policy tabs (GMC / GPA / GTL …) ---------- */
+.portal-main .pw-tabs {
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .7);
+  border: 1px solid #e4eaf4;
+  box-shadow: 0 6px 18px -12px rgba(16, 34, 70, .35);
+  backdrop-filter: blur(6px);
+}
+.portal-main .pw-tabs button {
+  border-color: transparent;
+  transition: background .2s ease, color .2s ease, transform .15s ease;
+}
+.portal-main .pw-tabs button:not(.on) {
+  background: transparent;
+  box-shadow: none;
+}
+.portal-main .pw-tabs button:hover:not(.on) {
+  background: #eef3fb;
+  color: #1f4fd8;
+}
+.portal-main .pw-tabs button:active { transform: scale(.97); }
+.portal-main .pw-tabs button.on {
+  box-shadow: 0 8px 18px -8px rgba(37, 99, 235, .65);
+}
+@media (max-width: 640px) {
+  .portal-main .pw-tabs { display: flex; width: auto; border-radius: 18px; }
+}
+
+/* ---------- Info cards: long values (TPA, period) ---------- */
+.portal-main .pw-info-card { align-items: flex-start; min-width: 0; }
+.portal-main .pw-info-card > div { min-width: 0; }
+.portal-main .pw-info-card strong {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-word;
+}
+.portal-main .pw-info-card .pw-info-icon { margin-top: 2px; }
+.portal-main .pw-info-card {
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.portal-main .pw-info-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -18px rgba(16, 34, 70, .45);
+}
+
+/* ---------- Panels: less dead space, equal-height rows ---------- */
+.portal-main .pw-cards { align-items: stretch; }
+.portal-main .pw-panel > .portal-panel-header { padding-bottom: 10px; }
+.portal-main .pw-files { margin-top: 0; }
+
+/* ---------- Donut charts: keep legend inside the card ---------- */
+.portal-main .donut { grid-template-columns: minmax(110px, 150px) minmax(0, 1fr); gap: 14px; }
+.portal-main .donut-legend li { gap: 8px; padding: 8px; }
+.portal-main .donut-legend li span { min-width: 0; line-height: 1.3; }
+.portal-main .donut-legend b { white-space: nowrap; }
+@media (max-width: 1250px) and (min-width: 1101px) {
+  .portal-main .donut { grid-template-columns: 1fr; justify-items: center; }
+  .portal-main .donut-svg { max-width: 150px; }
+  .portal-main .donut-legend { width: 100%; }
+}
+
+/* ---------- Tables: readability ---------- */
+.portal-main .portal-table-wrapper {
+  border-radius: 16px;
+  border: 1px solid #e8edf6;
+  overflow: auto;
+}
+.portal-main .portal-table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #f6f9fd;
+  font-size: .68rem;
+  letter-spacing: .08em;
+}
+.portal-main .portal-table td {
+  font-size: .84rem;
+  color: #22324d;
+  font-weight: 500;
+}
+.portal-main .portal-table tbody tr { transition: background .15s ease; }
+.portal-main .portal-table tbody tr:nth-child(even) td { background: #fbfcfe; }
+.portal-main .portal-table tbody tr:hover td { background: #f1f6ff; }
+.portal-main .portal-table td:nth-child(2),
+.portal-main .portal-table td:nth-child(3) { font-weight: 600; color: #0f1f3a; }
+
+/* ---------- Sidebar: clearer active state ---------- */
+.portal-nav-item { position: relative; }
+.portal-nav-item.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: linear-gradient(180deg, #f5c06b, #e9962f);
+}
+
+/* ---------- Buttons: consistent focus ring ---------- */
+.portal-main button:focus-visible,
+.portal-main a:focus-visible,
+.portal-nav-item:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* ---------- Mobile topbar: keep it tidy ---------- */
+@media (max-width: 640px) {
+  .portal-breadcrumbs { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; max-width: 45vw; }
+  .portal-main .portal-page-header h1 { font-size: clamp(1.7rem, 7vw, 2.2rem); }
+}
